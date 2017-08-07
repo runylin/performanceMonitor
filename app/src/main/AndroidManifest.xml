@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.linxtu.tvmonitor">
+    package="com.linxtu.tvmonitor"
+    android:sharedUserId="android.uid.system">
     <!-- 显示顶层浮窗 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.DUMP" />
 
     <application
         android:allowBackup="true"
