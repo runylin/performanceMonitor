@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
+
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -45,7 +46,8 @@ public class InfoLinearLayout extends LinearLayout {
         mContext = context;
         memInfo = new MemInfo(mContext);
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View meminfoView = mInflater.inflate(R.layout.linearlayout_info, null);
+        LinearLayout meminfoView = (LinearLayout)mInflater.inflate(R.layout.linearlayout_info, this , false);
+
         addView(meminfoView);
         //init meminfo listview
         lv_meminfo = (ListView) findViewById(R.id.lv_meminfo);
@@ -175,6 +177,6 @@ public class InfoLinearLayout extends LinearLayout {
         mapiAndone.put("Top4",topNMem.mTop4);
         mapiAndone.put("Top5",topNMem.mTop5);
         topNList.add(TOPN_LIST_NUM-1,mapiAndone);
-        topNAdapter .notifyDataSetChanged();
+        topNAdapter.notifyDataSetChanged();
     }
 }

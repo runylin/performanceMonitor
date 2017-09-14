@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -77,11 +79,14 @@ public class TvMonitorService extends Service{
         //mParams.format = PixelFormat.RGBA_8888;
         mParams.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;// 焦点
         mParams.flags |= WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
-        mParams.width = 1500;//窗口的宽和高
-        mParams.height = 500;
-        mParams.x = 0;//窗口位置的偏移量
+
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        mParams.width = displayMetrics.widthPixels/2;//窗口的宽和高
+        mParams.height = displayMetrics.heightPixels;
+        mParams.x = displayMetrics.widthPixels/2;//窗口位置的偏移量
         mParams.y = 0;
     }
+
 
     @Override
     public void onDestroy() {
